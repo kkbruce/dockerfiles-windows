@@ -1,9 +1,6 @@
 # escape=`
-# FROM mcr.microsoft.com/windows/servercore:1709
-# FROM mcr.microsoft.com/windows/servercore:1803
-# FROM mcr.microsoft.com/windows/servercore:1809
-FROM mcr.microsoft.com/windows/servercore:1809
-LABEL maintainer="kkbruce" platform="windows" os="servercore"
+
+FROM mcr.microsoft.com/windows/servercore:1903
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Install ASP.NET Core Runtime
