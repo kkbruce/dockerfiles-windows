@@ -1,7 +1,7 @@
 # escape=`
-# build command: docker build -t kkbruce/nginx:1.17.8-servercore-1909 .
+# build command: docker build -t kkbruce/nginx:1.17.9-servercore-1909 .
 FROM mcr.microsoft.com/windows/servercore:1909
-LABEL maintainer="kkbruce" version="1.17.8"
+LABEL maintainer="kkbruce" version="1.17.9"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
