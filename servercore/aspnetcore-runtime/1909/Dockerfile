@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/windows/servercore:1909
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-# From https://github.com/dotnet/dotnet-docker/blob/74c92451ecbd2876280ad51736a6eea4e98a1fb2/3.1/aspnet/nanoserver-1909/amd64/Dockerfile
+# Modify from https://github.com/dotnet/dotnet-docker/blob/74c92451ecbd2876280ad51736a6eea4e98a1fb2/3.1/aspnet/nanoserver-1909/amd64/Dockerfile
 # Install ASP.NET Core Runtime
 RUN $aspnetcore_version = '3.1.2'; `
     Invoke-WebRequest -OutFile aspnetcore.zip https://dotnetcli.azureedge.net/dotnet/aspnetcore/Runtime/$aspnetcore_version/aspnetcore-runtime-$aspnetcore_version-win-x64.zip; `
@@ -16,7 +16,7 @@ RUN $aspnetcore_version = '3.1.2'; `
     Expand-Archive aspnetcore.zip -DestinationPath dotnet; `
     Remove-Item -Force aspnetcore.zip
 
-RUN $Env:PATH = 'C:\Program Files\dotnet;' + $Env:PATH; `
+RUN $Env:PATH = 'C:\dotnet;' + $Env:PATH; `
     [Environment]::SetEnvironmentVariable('PATH', $Env:PATH, [EnvironmentVariableTarget]::Machine)
 
 # Configure web servers to bind to port 80 when present

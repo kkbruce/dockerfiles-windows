@@ -17,7 +17,7 @@ RUN $dotnet_version = '3.1.2'; `
     Remove-Item -Force dotnet.zip
 
 # set system PATH to persist across sessions.
-RUN $Env:PATH = 'C:\Program Files\dotnet;' + $Env:PATH; `
+RUN $Env:PATH = 'C:\dotnet;' + $Env:PATH; `
     [Environment]::SetEnvironmentVariable('PATH', $Env:PATH, [EnvironmentVariableTarget]::Machine)
 
 # Enable detection of running in a container
