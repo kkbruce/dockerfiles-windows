@@ -1,12 +1,12 @@
 # escape=`
-# build command: docker build -t kkbruce/nginx:1.17.9-servercore-1909 .
+
 FROM mcr.microsoft.com/windows/servercore:1909
-LABEL maintainer="kkbruce" version="1.17.9"
+LABEL maintainer="kkbruce" version="1.18.0"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN $nginx_version = '1.17.9'; `
-    Invoke-WebRequest -Uri http://nginx.org/download/nginx-$nginx_version.zip -OutFile nginx.zip ; `
+# .zip file URL from http://nginx.org/en/download.html
+RUN Invoke-WebRequest -Uri http://nginx.org/download/nginx-1.18.0.zip -OutFile nginx.zip ; `
 	Expand-Archive nginx.zip -DestinationPath $Env:ProgramFiles ; `
 	Remove-Item -Force nginx.zip ; `
 	Move-Item $Env:ProgramFiles\nginx-* $Env:ProgramFiles\nginx
