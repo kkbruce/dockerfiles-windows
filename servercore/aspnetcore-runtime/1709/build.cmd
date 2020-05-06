@@ -1,0 +1,1 @@
+docker build -t kkbruce/aspnetcore:2.2.5-runtime-servercore-1709 --network "Default Switch" .

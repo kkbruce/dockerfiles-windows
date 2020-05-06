@@ -1,0 +1,1 @@
+docker build -t kkbruce/netcore:3.1-runtime-servercore-1909 --network "Default Switch" .
