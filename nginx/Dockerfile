@@ -1,12 +1,12 @@
 # escape=`
 
-FROM mcr.microsoft.com/windows/servercore:1909
-LABEL maintainer="kkbruce" version="1.18.0"
+FROM mcr.microsoft.com/windows/servercore:2004
+LABEL maintainer="kkbruce" version="1.19.2"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # .zip file URL from http://nginx.org/en/download.html
-RUN Invoke-WebRequest -Uri http://nginx.org/download/nginx-1.18.0.zip -OutFile nginx.zip ; `
+RUN Invoke-WebRequest -Uri http://nginx.org/download/nginx-1.19.2.zip -OutFile nginx.zip ; `
 	Expand-Archive nginx.zip -DestinationPath $Env:ProgramFiles ; `
 	Remove-Item -Force nginx.zip ; `
 	Move-Item $Env:ProgramFiles\nginx-* $Env:ProgramFiles\nginx

@@ -1,1 +1,1 @@
-docker build -t kkbruce/nginx:1.18.0-servercore-1909 --network "Default Switch" .
+docker build -t kkbruce/nginx:1.19.2-servercore-2004 --network "Default Switch" .
