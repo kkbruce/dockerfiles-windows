@@ -1,0 +1,1 @@
+docker build -t kkbruce/aspnetcore:3.1-runtime-servercore-2004 --network "Default Switch" .
